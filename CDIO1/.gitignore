@@ -1,2 +1,10 @@
 /bin/
 /users.data
+.aux
+.fls
+.log
+.pdf
+.synctex.gz
+.gz
+.aux
+.dfb_latexmk
