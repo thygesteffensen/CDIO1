@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>297</y>
+      <w>360</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IUserDAO
+--
+--
++getUser(int userId) : UserDTO &lt;&lt;throws DALException&gt;&gt; 
++ getUserList() : List&lt;UserDTO&gt; &lt;&lt;throws DALException&gt;&gt;
++ createUser( user : UserDTO ) &lt;&lt;throws DALException&gt;&gt;
++ updateUser( user : UserDTO ) &lt;&lt;throws DALException&gt;&gt;
++ deleteUser( userId : int ) &lt;&lt;throws DALException&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>243</x>
+      <y>414</y>
+      <w>27</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>801</x>
+      <y>657</y>
+      <w>207</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>UserDTO
+--
+- id : int
+- name : String
+- initials : String
+- cpr : Stirng
+- password : String
+- roles : ArrayList&lt;String&gt;
+--
++ UserDTO( )
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>477</y>
+      <w>360</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>UserDAO
+--
+//- users : ArrayList&lt; UserDTO &gt;
+//- store : UserStore
+--
++ UserDAO()
+
++getUser(int userId) : UserDTO &lt;&lt;throws DALException&gt;&gt; 
++ getUserList() : List&lt;UserDTO&gt; &lt;&lt;throws DALException&gt;&gt;
++ createUser( user : UserDTO ) &lt;&lt;throws DALException&gt;&gt;
++ updateUser( user : UserDTO ) &lt;&lt;throws DALException&gt;&gt;
++ deleteUser( userId : int ) &lt;&lt;throws DALException&gt;&gt;
+
+- loadUsers() : UserStore &lt;&lt;throws DALException&gt;&gt;
+- saveUsers( users : UserStore ) &lt;&lt;throws DALException&gt;&gt; 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>801</x>
+      <y>495</y>
+      <w>207</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>UserStore
+--
+//- users : ArrayList&lt;UserDTO&gt;
+--
++ UserStore( )
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>558</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+- users : ArrayList&lt;UserDTO&gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>684</y>
+      <w>324</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+- users : ArrayList&lt;UserDTO&gt;</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1098</x>
+      <y>729</y>
+      <w>117</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Serializable
+--
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>999</x>
+      <y>738</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>999</x>
+      <y>522</y>
+      <w>171</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>170.0;230.0;170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>504</y>
+      <w>324</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- store : UserStore</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>63</y>
+      <w>288</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>TextUserInterface
+--
+//- dataAccess : IUserDAO
+--
++ TextUserInterface( dataAccess : IUserDAO)
+
++ ShowUsers()
++ ShowUser()
++ CreateUser()
++ ChangeUser()
++ DeleteUser()
++ ToExit() : boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>999</x>
+      <y>63</y>
+      <w>144</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>MainWeightingMachine
+--
+//- textUserInterface : ITextUserInterface
+--
+_+main( args : String[])_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>117</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>225</x>
+      <y>198</y>
+      <w>162</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- dataAccess : IUserDAO</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>63</y>
+      <w>198</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ITextUserInterface
+--
+//- dataAccess : IUserDAO
+--
++ ShowUsers()
++ ShowUser()
++ CreateUser()
++ ChangeUser()
++ DeleteUser()
++ ToExit() : boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>612</x>
+      <y>63</y>
+      <w>405</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- textUserInterface : ITextUserInterface &lt;&lt;creates&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+</diagram>
