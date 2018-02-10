@@ -1,0 +1,14 @@
+//comments 
+- if possible not writing comments, instead use descriptive names, the code is much more clear (see Screaming architecture) 
+
+//general 
+- always use { } even if only one line for example:
+  
+  if(isGoodToGo()){
+    //one line 
+  }else{
+    //one line
+  }
+  
+//UML
+- use UML 2 and the agile style http://agilemodeling.com/ where needed 
