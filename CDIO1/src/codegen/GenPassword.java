@@ -18,7 +18,7 @@ public class GenPassword implements IGenPassword {
 	 * - special characters. 
 	 * 1.2.1: Special characters: {'.', '-', '_', '+', '!', '?', '='}
 	 */
-	public String genCode() {
+	public String genPassword() {
 		char[] code = new char[6];
 		code[0] = genSmallLetter();
 		code[1] = genCapitalLetter();
