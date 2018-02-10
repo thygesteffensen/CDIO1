@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>144</x>
-      <y>297</y>
+      <y>360</y>
       <w>360</w>
       <h>126</h>
     </coordinates>
@@ -24,7 +24,7 @@ IUserDAO
     <id>Relation</id>
     <coordinates>
       <x>243</x>
-      <y>414</y>
+      <y>477</y>
       <w>27</w>
       <h>81</h>
     </coordinates>
@@ -35,7 +35,7 @@ IUserDAO
     <id>UMLClass</id>
     <coordinates>
       <x>801</x>
-      <y>657</y>
+      <y>720</y>
       <w>207</w>
       <h>153</h>
     </coordinates>
@@ -56,7 +56,7 @@ IUserDAO
     <id>UMLClass</id>
     <coordinates>
       <x>144</x>
-      <y>477</y>
+      <y>540</y>
       <w>360</w>
       <h>270</h>
     </coordinates>
@@ -82,7 +82,7 @@ IUserDAO
     <id>UMLClass</id>
     <coordinates>
       <x>801</x>
-      <y>495</y>
+      <y>558</y>
       <w>207</w>
       <h>72</h>
     </coordinates>
@@ -98,7 +98,7 @@ IUserDAO
     <id>Relation</id>
     <coordinates>
       <x>882</x>
-      <y>558</y>
+      <y>621</y>
       <w>189</w>
       <h>117</h>
     </coordinates>
@@ -111,7 +111,7 @@ m1=0..*
     <id>Relation</id>
     <coordinates>
       <x>495</x>
-      <y>684</y>
+      <y>747</y>
       <w>324</w>
       <h>45</h>
     </coordinates>
@@ -124,7 +124,7 @@ m1=0..*
     <id>UMLClass</id>
     <coordinates>
       <x>1098</x>
-      <y>729</y>
+      <y>792</y>
       <w>117</w>
       <h>54</h>
     </coordinates>
@@ -140,7 +140,7 @@ Serializable
     <id>Relation</id>
     <coordinates>
       <x>999</x>
-      <y>738</y>
+      <y>801</y>
       <w>117</w>
       <h>27</h>
     </coordinates>
@@ -151,7 +151,7 @@ Serializable
     <id>Relation</id>
     <coordinates>
       <x>999</x>
-      <y>522</y>
+      <y>585</y>
       <w>171</w>
       <h>225</h>
     </coordinates>
@@ -162,7 +162,7 @@ Serializable
     <id>Relation</id>
     <coordinates>
       <x>495</x>
-      <y>504</y>
+      <y>567</y>
       <w>324</w>
       <h>45</h>
     </coordinates>
@@ -175,7 +175,7 @@ m1=1
     <id>UMLClass</id>
     <coordinates>
       <x>63</x>
-      <y>63</y>
+      <y>126</y>
       <w>288</w>
       <h>144</h>
     </coordinates>
@@ -198,7 +198,7 @@ m1=1
     <id>UMLClass</id>
     <coordinates>
       <x>999</x>
-      <y>63</y>
+      <y>126</y>
       <w>144</w>
       <h>63</h>
     </coordinates>
@@ -213,7 +213,7 @@ _+main( args : String[])_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>342</x>
-      <y>117</y>
+      <y>180</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -224,7 +224,7 @@ _+main( args : String[])_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>225</x>
-      <y>198</y>
+      <y>261</y>
       <w>162</w>
       <h>117</h>
     </coordinates>
@@ -237,7 +237,7 @@ m1=1
     <id>UMLClass</id>
     <coordinates>
       <x>423</x>
-      <y>63</y>
+      <y>126</y>
       <w>198</w>
       <h>135</h>
     </coordinates>
@@ -259,7 +259,7 @@ ITextUserInterface
     <id>Relation</id>
     <coordinates>
       <x>612</x>
-      <y>63</y>
+      <y>126</y>
       <w>405</w>
       <h>45</h>
     </coordinates>
@@ -267,5 +267,76 @@ ITextUserInterface
 m1=1
 - textUserInterface : ITextUserInterface &lt;&lt;creates&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;20.0;430.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>945</x>
+      <y>243</y>
+      <w>189</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IGenPassword
+--
+
+--
++ genCode() : String
+--
+Responsibilities
+-- Generating password 
+according to the corresponding 
+rules.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>243</y>
+      <w>189</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>GenPassword
+--
+- ran : Random
+--
++ genPassword() : String
+- genSmalLetter() : char
+- genCapitalLetter() : char
+- genNumber() : char
+- genSpecialChar() : char
+- genChar() : int
+- mixUpString(char[]) : String
+--
+Responsibilities
+-- Generating password 
+according to the corresponding 
+rules.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>324</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>891</x>
+      <y>396</y>
+      <w>261</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Disse klasser er lavet og fungerer, men ikke 
+implementeret i det endelig system.
+bg=gray</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
