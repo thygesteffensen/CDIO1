@@ -1,5 +1,15 @@
+//test driven 
+- do not write code before writing a failing test for it
+- 
+
+//commits
+- remember to update before you commit and push
+- push only one use case or functionality at a time
+-
+
 //comments 
-- if possible not writing comments, instead use descriptive names, the code is much more clear (see Screaming architecture) 
+- if possible not writing comments, instead use descriptive names, the code is much more clear (Screaming architecture) 
+-
 
 //general 
 - always use { } even if only one line for example:
@@ -9,6 +19,9 @@
   }else{
     //one line
   }
+- 
   
 //UML
 - use UML 2 and the agile style http://agilemodeling.com/ where needed 
+- remember to update UML when something changes 
+- 
