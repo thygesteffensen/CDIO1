@@ -1,0 +1,13 @@
+/bin/
+/users.data
+*.fls
+*.log
+*.pdf
+*.synctex.gz
+*.gz
+*.dfb_latexmk
+*.aux
+*.synctex(busy)
+*.out
+*.fdb_latexmk
+CDIO1/.classpath

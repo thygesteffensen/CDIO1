@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+    \usepackage[utf8]{inputenc}
+    \usepackage{amsmath}
+    \usepackage{amsfonts}
+    \usepackage{amssymb}
+    \usepackage[danish]{babel}
+    \usepackage{graphicx}
+    \usepackage{natbib}
+    \usepackage{siunitx}
+    \usepackage{fancyhdr}
+    \usepackage{adjustbox}%Gør det muligt at have en "tabel" der kan gå ud over begge marign, istedet for kun den ene (højre)
+    \usepackage{titling} %Package som bruges til at fjerne number på forside.
+
+% Vandmærke
+    %\usepackage{draftwatermark}
+    %\SetWatermarkText{\includegraphics{fig/dtu/dtu-logo-3.png}}
+% Udvidet side hoved/fod
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyfoot[RE,RO]{\includegraphics[height=4.5cm]{fig/dtu/dtu.png}}
+% lstlisting - til brug ved indsættelse af kode
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=1.5mm,
+  belowskip=1.5mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+% Hyperlinks
+\usepackage{hyperref}
+\usepackage{color}
+
+
+\title{CDIO2}
+\author{Gruppe 16}
+\date{10. november 2017}
+
+% Sidehoved
+    \pagestyle{fancy}
+    \lhead{Gruppe 16}
+    \rhead{02313 - 02315}
+    \chead{CDIO2}
+
+
+    \author{Gruppe 16}
+    \title{CDIO3}
+    \pagestyle{fancy}
+    \lhead{Gruppe 16}
+    \rhead{CDIO3}
+    \chead{1. december 2017}
+
+
+    \begin{document}
+	\input{subpages/forside.tex}
+	\pagebreak
+	\intput{subpages/usecases.tex}
+    \end{document}
