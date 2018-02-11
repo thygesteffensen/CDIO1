@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDTO implements Serializable{
-
+public class UserDTO implements Serializable, Cloneable{
 	private static final long serialVersionUID = 4545864587995944260L;
 	private int	id = 0;                     
 	private String name = "";                
@@ -78,6 +77,18 @@ public class UserDTO implements Serializable{
 								, id, name, initials, roles);
 	}
 	
+	@Override
+	public UserDTO clone() {
+		List<String> cloneRoles = new ArrayList<>();
+	    for(String s : roles) {
+	    	cloneRoles.add(s);
+	    }
+		return new UserDTO(id,name,initials, cpr, password, cloneRoles); 
+	}
 	
+	public void Update(UserDTO user) {
+		name = user.getName();                
+		roles = user.getRoles();
+	}	
 	
 }

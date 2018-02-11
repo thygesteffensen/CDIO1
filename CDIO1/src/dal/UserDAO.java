@@ -19,14 +19,25 @@ public class UserDAO implements IUserDAO {
 	
 	public UserDAO() {
 		try {
-			store = loadUsers();
+			reloadStore();
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
-		users = store.getUsers();
 	}
 	
-	private UserStore loadUsers() throws DALException {
+	private void reloadStore() throws DALException {
+		setStore( loadStore() );
+		setUsers( store.getUsers() );
+	}
+
+	private void setStore(UserStore store) {
+		this.store = store;
+	}	
+	private void setUsers(List<UserDTO> users) {
+		this.users = users;
+	}
+	
+	private UserStore loadStore() throws DALException {
         UserStore userStore = new UserStore();
         ObjectInputStream oIS = null;
         try {
@@ -102,7 +113,17 @@ public class UserDAO implements IUserDAO {
 
 	@Override
 	public void updateUser(UserDTO user) throws DALException {
-	
+		List<UserDTO> users = store.getUsers();
+		for(UserDTO u : users) {
+			if(u.getId() == user.getId()) {
+				u.Update(user);
+				break;
+			}
+		}
+		
+		saveUsers(store);
+		
+		reloadStore();
 	}
 
 	@Override

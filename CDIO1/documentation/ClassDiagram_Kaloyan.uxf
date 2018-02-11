@@ -49,6 +49,7 @@ IUserDAO
 - roles : ArrayList&lt;String&gt;
 --
 + UserDTO( )
++ Update( UserDTO )
 </panel_attributes>
     <additional_attributes/>
   </element>
