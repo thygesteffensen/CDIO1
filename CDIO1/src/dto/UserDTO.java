@@ -7,33 +7,50 @@ import java.util.List;
 public class UserDTO implements Serializable{
 
 	private static final long serialVersionUID = 4545864587995944260L;
-	private int	userId;                     
-	private String userName;                
-	private String ini;                 
-	private List<String> roles;
-	//TODO Add relevant fields
+	private int	id = 0;                     
+	private String name = "";                
+	private String initials = "";
+	private String cpr = "";
+	private String password = "";
+	private List<String> roles = new ArrayList<>();
 	
-	public UserDTO() {
-		this.roles = new ArrayList<>();
+	public UserDTO() {	}
+	public UserDTO(int id, String name, 
+				   String initials, String cpr, 
+				   String password, List<String> roles) {
+		setId(id);
+		setName(name);
+		setInitials(initials);
+		setCpr(cpr);
+		setPassword(password);
+		setRoles(roles);
 	}
 	
-	public int getUserId() {
-		return userId;
+	private void setPassword(String password) {
+		this.password = password;		
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	private void setCpr(String cpr) {
+		this.cpr = cpr;
 	}
-	public String getUserName() {
-		return userName;
+
+	public int getId() {
+		return id;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getIni() {
-		return ini;
+		return initials;
 	}
-	public void setIni(String ini) {
-		this.ini = ini;
+	public void setInitials(String initials) {
+		this.initials = initials;
 	}
 
 	public List<String> getRoles() {
@@ -57,7 +74,8 @@ public class UserDTO implements Serializable{
 
 	@Override
 	public String toString() {
-		return "UserDTO [userId=" + userId + ", userName=" + userName + ", ini=" + ini + ", roles=" + roles + "]";
+		return String.format("UserDTO [id= %d, name= %s, initials= %s, roles= %s]"
+								, id, name, initials, roles);
 	}
 	
 	
