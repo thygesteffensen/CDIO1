@@ -1,13 +1,20 @@
 import dal.IUserDAO.DALException;
 import dal.UserDAO;
-import userinterface.ITextUserInterface;
+import userinterface.ITextUserInterfaceExtended;
 import userinterface.TextUserInterface;
 
 public class MainWeightingSystem {
 	
 	public static void main(String[] args) {
-
-		ITextUserInterface tui = new TextUserInterface(new UserDAO());
+		UserDAO dataAccess = null;
+		
+		try {
+			dataAccess = new UserDAO();
+		} catch (DALException e) {
+			e.printStackTrace();
+		}
+		
+		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
 		
 		boolean exit = false;
 		

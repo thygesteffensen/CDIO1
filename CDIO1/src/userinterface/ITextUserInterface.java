@@ -6,7 +6,7 @@ public interface ITextUserInterface {
 
 	void ShowMenu() throws DALException;
 
-	boolean ToExit();
+	//boolean ToExit();
 
 	void ShowUsers() ;
 

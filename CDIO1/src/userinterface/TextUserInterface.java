@@ -12,7 +12,7 @@ import dal.IUserDAO.DALException;
 import dal.UserDAO;
 import dto.UserDTO;
 
-public class TextUserInterface implements ITextUserInterface {
+public class TextUserInterface implements ITextUserInterfaceExtended {
 
 	//work around to keep System.in open
 	public class CustomInputStream extends FilterInputStream{

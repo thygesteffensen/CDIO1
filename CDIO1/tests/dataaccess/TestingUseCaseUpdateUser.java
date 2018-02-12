@@ -34,9 +34,10 @@ public class TestingUseCaseUpdateUser {
 		assertEquals(user.toString(), str);
 		
 		//init
-		IUserDAO dataAccess = new UserDAO();
+		IUserDAO dataAccess = null;
 		List<UserDTO> users = new ArrayList<>();
 		try {
+			dataAccess = new UserDAO();
 			users = dataAccess.getUserList();
 		} catch (DALException e) {
 			// TO DO..
@@ -61,11 +62,12 @@ public class TestingUseCaseUpdateUser {
     		assertEquals(user.toString(), returnedUser.toString());
     		
     	}else {//if user already in the store update the user 
-    		 IUserDAO dataAccessReload = new UserDAO();
+    		 IUserDAO dataAccessReload = null;
     		//init
     		UserDTO u = new UserDTO();
     		UserDTO modifiedUser = new UserDTO();
     		try {
+    			dataAccessReload = new UserDAO();
     			u = dataAccessReload.getUser(id);
     			modifiedUser = u.clone();
     			modifiedUser.getRoles().add("Admin");

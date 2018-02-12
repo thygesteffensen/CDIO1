@@ -17,12 +17,12 @@ public class UserDAO implements IUserDAO {
 	private UserStore store = new UserStore();
 	private List<UserDTO> users  = new ArrayList<>(); // = store.getUsers();
 	
-	public UserDAO() {
-		try {
+	public UserDAO() throws DALException {
+		//try {
 			reloadStore();
-		} catch (DALException e) {
-			e.printStackTrace();
-		}
+		//} catch (DALException e) {
+		//	e.printStackTrace();
+		//}
 	}
 	
 	private void reloadStore() throws DALException {
