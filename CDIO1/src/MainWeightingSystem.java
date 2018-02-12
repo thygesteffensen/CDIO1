@@ -1,5 +1,6 @@
 import dal.IUserDAO.DALException;
 import dal.UserDAO;
+import userinterface.IExitable;
 import userinterface.ITextUserInterfaceExtended;
 import userinterface.TextUserInterface;
 
@@ -12,19 +13,28 @@ public class MainWeightingSystem {
 			dataAccess = new UserDAO();
 		} catch (DALException e) {
 			e.printStackTrace();
-		}
+			for(Throwable t : e.getSuppressed()) {
+				System.out.printf("\nSuppressed:  %s ", t.getMessage());
+			}
+		}		
 		
 		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
 		
-		boolean exit = false;
+		ExitListener listener = new ExitListener();
+		tui.AttachExitable(listener);
 		
-		while(!exit) {
+		//boolean exit = false;
+		
+		while(!listener.ToExit()) {//exit) {
 			try {
 				tui.ShowMenu();
 			} catch (DALException e) {
 				e.printStackTrace();
+				for(Throwable t : e.getSuppressed()) {
+					System.out.printf("\nSuppressed:  %s ", t.getMessage());
+				}
 			}finally {
-				exit = tui.ToExit();				
+				//exit = tui.ToExit();				
 			}
 		}
 		

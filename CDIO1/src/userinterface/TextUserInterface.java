@@ -13,7 +13,18 @@ import dal.UserDAO;
 import dto.UserDTO;
 
 public class TextUserInterface implements ITextUserInterfaceExtended {
-
+	private List<IExitable> exitables = new ArrayList<>();
+	
+	public void AttachExitable(IExitable exitable) {
+		exitables.add(exitable);
+	}
+	
+	private void NotifyExitableListeners() {
+		for(IExitable ex : exitables) {
+			ex.Exit();
+		}
+	}
+	
 	//work around to keep System.in open
 	public class CustomInputStream extends FilterInputStream{
 		public CustomInputStream(InputStream inputStream) {
@@ -64,7 +75,8 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 				break;
 			case 0:
 			default:
-				exit = true;
+				NotifyExitableListeners();
+				//exit = true;
 				break;
 		}
 	}
@@ -77,10 +89,10 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		return num;
 	}
 
-	@Override
-	public boolean ToExit() {		
-		return exit;
-	}
+	//@Override
+	//public boolean ToExit() {		
+	//	return exit;
+	//}
 
 	private List<UserDTO> users = new ArrayList<>();
 	@Override
