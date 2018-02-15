@@ -74,14 +74,18 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 				DeleteUser();
 				break;
 			case 0:
-			default:
+			default:				
 				NotifyExitableListeners();
 				//exit = true;
+				CloseInputStream();
 				break;
 		}
 	}
 	
-	
+	private void CloseInputStream() {
+		new Scanner(System.in).close();
+	}
+
 	private int getInt() {
 		Scanner in = new Scanner(this.inputStream);
 		int num = in.nextInt();
