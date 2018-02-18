@@ -97,6 +97,6 @@ public class UserDTO implements Serializable, Cloneable, Comparable<UserDTO>{
 	
 	@Override
 	public int compareTo(UserDTO otherUser) {
-		return getId() - otherUser.getId();
+		return ( getId() < otherUser.getId() ? -1 : (getId() == otherUser.getId() ? 0 : 1) ); 
 	}
 }
