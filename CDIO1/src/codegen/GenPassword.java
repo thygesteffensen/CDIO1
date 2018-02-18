@@ -29,18 +29,33 @@ public class GenPassword implements IGenPassword {
 		return mixUpString(code);
 	}
 	
+	/**
+	* Generates a random small letter using genChar() method
+	*/
 	private char genSmallLetter() {
 		return (char)genChar(97, 122);
 	}
 	
+	/**
+	* Generates a random capitel letter using genChar() method
+	*/
 	private char genCapitalLetter() {
 		return  (char)genChar(65, 90);
 	}
 	
+	/**
+	* Generates a random number using genChar() method
+	*/
 	private char genNumber() {
 		return (char)genChar(48,57);
 	}
 	
+	/**
+	* Generates a random special character using genChar() method.
+	* This cannot be done like the other ones, because the special
+	* characters does not follow each other in ASCII number.
+	* we are therefore using a switch
+	*/
 	private char genSpecialChar() {
 		switch (genChar(0,6)) {
 		case 0:
@@ -62,10 +77,17 @@ public class GenPassword implements IGenPassword {
 		}
 	}
 	
+	/**
+	* Generates a random integer between the given bounds using
+	* the Random packages.
+	*/
 	private int genChar(int lowerBound, int upperBound) {
 		return lowerBound + ran.nextInt(upperBound-lowerBound+1);
 	}
 	
+	/**
+	* Not yet implemented...
+	*/
 	private String mixUpString(char[] inputArray) {
 		String strCode = "";
 		for (int i = 0; i < inputArray.length; i++) {
