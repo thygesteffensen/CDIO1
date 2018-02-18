@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import dal.IUserDAO;
@@ -128,7 +129,21 @@ public class UserDAO implements IUserDAO {
 
 	@Override
 	public void deleteUser(int userId) throws DALException {
-	
+		List<UserDTO> users = store.getUsers();
+		
+		Iterator<UserDTO> it = users.iterator();
+		while(it.hasNext()) {
+			if(it.next().hasId(userId)) {
+				it.remove();
+				break;
+			}
+		}
+		
+		saveUsers(store);
+		
+		reloadStore();
 	}
+	
+
 
 }

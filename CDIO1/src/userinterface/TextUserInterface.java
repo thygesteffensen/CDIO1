@@ -194,8 +194,12 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	}
 	
 	@Override
-	public void DeleteUser() {
-		
+	public void DeleteUser() throws DALException {
+		askForUserId();
+		getUserId();
+
+		dataAccess.deleteUser(id);
+
 	}
 
 }

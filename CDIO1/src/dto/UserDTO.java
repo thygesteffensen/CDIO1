@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDTO implements Serializable, Cloneable{
+public class UserDTO implements Serializable, Cloneable, Comparable<UserDTO>{
 	private static final long serialVersionUID = 4545864587995944260L;
 	private int	id = 0;                     
 	private String name = "";                
@@ -91,4 +91,12 @@ public class UserDTO implements Serializable, Cloneable{
 		roles = user.getRoles();
 	}	
 	
+	public boolean hasId(int id) {
+		return getId() == id;
+	}
+	
+	@Override
+	public int compareTo(UserDTO otherUser) {
+		return getId() - otherUser.getId();
+	}
 }

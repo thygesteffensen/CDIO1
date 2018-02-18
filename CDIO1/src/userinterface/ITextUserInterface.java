@@ -14,6 +14,6 @@ public interface ITextUserInterface {
 
 	void UpdateUser() throws DALException;
 	
-	void DeleteUser();
+	void DeleteUser() throws DALException;
 
 }
