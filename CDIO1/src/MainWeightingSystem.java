@@ -8,6 +8,8 @@ public class MainWeightingSystem {
 	
 	public static void main(String[] args) {
 		UserDAO dataAccess = null;
+		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
+		ExitListener listener = new ExitListener();
 		
 		try {
 			dataAccess = new UserDAO();
@@ -18,9 +20,7 @@ public class MainWeightingSystem {
 			}
 		}		
 		
-		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
 		
-		ExitListener listener = new ExitListener();
 		tui.AttachExitable(listener);
 		
 		//boolean exit = false;
