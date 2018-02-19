@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>198</x>
-      <y>630</y>
+      <y>684</y>
       <w>558</w>
       <h>207</h>
     </coordinates>
@@ -32,7 +32,7 @@ innerclass}</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>396</x>
-      <y>828</y>
+      <y>882</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -43,7 +43,7 @@ innerclass}</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>675</x>
-      <y>999</y>
+      <y>1053</y>
       <w>585</w>
       <h>252</h>
     </coordinates>
@@ -70,7 +70,7 @@ __-serialVersionUID : long &lt;&lt; final &gt;&gt;__
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>873</y>
+      <y>927</y>
       <w>432</w>
       <h>252</h>
     </coordinates>
@@ -99,7 +99,7 @@ __-serialVersionUID : long &lt;&lt; final &gt;&gt;__
     <id>UMLClass</id>
     <coordinates>
       <x>1053</x>
-      <y>828</y>
+      <y>882</y>
       <w>252</w>
       <h>99</h>
     </coordinates>
@@ -117,7 +117,7 @@ __-serialVersionUID : long &lt;&lt; final &gt;&gt;__
     <id>Relation</id>
     <coordinates>
       <x>1134</x>
-      <y>918</y>
+      <y>972</y>
       <w>189</w>
       <h>99</h>
     </coordinates>
@@ -130,7 +130,7 @@ m1=0..*
     <id>Relation</id>
     <coordinates>
       <x>423</x>
-      <y>1080</y>
+      <y>1134</y>
       <w>270</w>
       <h>45</h>
     </coordinates>
@@ -143,7 +143,7 @@ m1=0..*
     <id>UMLClass</id>
     <coordinates>
       <x>1350</x>
-      <y>1089</y>
+      <y>1143</y>
       <w>117</w>
       <h>45</h>
     </coordinates>
@@ -157,7 +157,7 @@ java.io.Serializable
     <id>Relation</id>
     <coordinates>
       <x>1251</x>
-      <y>1098</y>
+      <y>1152</y>
       <w>117</w>
       <h>27</h>
     </coordinates>
@@ -168,7 +168,7 @@ java.io.Serializable
     <id>Relation</id>
     <coordinates>
       <x>1296</x>
-      <y>882</y>
+      <y>936</y>
       <w>126</w>
       <h>225</h>
     </coordinates>
@@ -179,7 +179,7 @@ java.io.Serializable
     <id>Relation</id>
     <coordinates>
       <x>423</x>
-      <y>900</y>
+      <y>954</y>
       <w>648</w>
       <h>45</h>
     </coordinates>
@@ -192,7 +192,7 @@ m1=1
     <id>UMLClass</id>
     <coordinates>
       <x>153</x>
-      <y>171</y>
+      <y>225</y>
       <w>441</w>
       <h>414</h>
     </coordinates>
@@ -236,7 +236,7 @@ innerclass}</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1323</x>
-      <y>423</y>
+      <y>477</y>
       <w>144</w>
       <h>63</h>
     </coordinates>
@@ -251,7 +251,7 @@ _+main( args : String[])_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>585</x>
-      <y>432</y>
+      <y>486</y>
       <w>189</w>
       <h>27</h>
     </coordinates>
@@ -262,7 +262,7 @@ _+main( args : String[])_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>315</x>
-      <y>576</y>
+      <y>630</y>
       <w>162</w>
       <h>72</h>
     </coordinates>
@@ -275,7 +275,7 @@ m1=1
     <id>UMLClass</id>
     <coordinates>
       <x>747</x>
-      <y>216</y>
+      <y>270</y>
       <w>198</w>
       <h>135</h>
     </coordinates>
@@ -297,7 +297,7 @@ ITextUserInterface
     <id>Relation</id>
     <coordinates>
       <x>972</x>
-      <y>423</y>
+      <y>477</y>
       <w>369</w>
       <h>45</h>
     </coordinates>
@@ -310,7 +310,7 @@ m1=1
     <id>UMLClass</id>
     <coordinates>
       <x>1197</x>
-      <y>540</y>
+      <y>594</y>
       <w>189</w>
       <h>144</h>
     </coordinates>
@@ -331,7 +331,7 @@ rules.</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>936</x>
-      <y>540</y>
+      <y>594</y>
       <w>189</w>
       <h>216</h>
     </coordinates>
@@ -357,7 +357,7 @@ rules.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1116</x>
-      <y>621</y>
+      <y>675</y>
       <w>99</w>
       <h>27</h>
     </coordinates>
@@ -368,7 +368,7 @@ rules.</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>1143</x>
-      <y>693</y>
+      <y>747</y>
       <w>261</w>
       <h>63</h>
     </coordinates>
@@ -381,7 +381,7 @@ bg=gray</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1197</x>
-      <y>1404</y>
+      <y>1458</y>
       <w>144</w>
       <h>72</h>
     </coordinates>
@@ -395,7 +395,7 @@ enum { ADMIN, PHARMACIST, FOREMAN, OPERATOR}
     <id>UMLClass</id>
     <coordinates>
       <x>1116</x>
-      <y>1287</y>
+      <y>1341</y>
       <w>144</w>
       <h>63</h>
     </coordinates>
@@ -409,7 +409,7 @@ java.lang.Cloneable
     <id>UMLClass</id>
     <coordinates>
       <x>675</x>
-      <y>1287</y>
+      <y>1341</y>
       <w>252</w>
       <h>63</h>
     </coordinates>
@@ -423,7 +423,7 @@ Comparable&lt;UserDTO&gt;
     <id>Relation</id>
     <coordinates>
       <x>792</x>
-      <y>1242</y>
+      <y>1296</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -434,7 +434,7 @@ Comparable&lt;UserDTO&gt;
     <id>Relation</id>
     <coordinates>
       <x>1179</x>
-      <y>1242</y>
+      <y>1296</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -445,7 +445,7 @@ Comparable&lt;UserDTO&gt;
     <id>UMLClass</id>
     <coordinates>
       <x>756</x>
-      <y>423</y>
+      <y>477</y>
       <w>225</w>
       <h>81</h>
     </coordinates>
@@ -460,7 +460,7 @@ ITextUserInterfaceExtended
     <id>Relation</id>
     <coordinates>
       <x>828</x>
-      <y>342</y>
+      <y>396</y>
       <w>27</w>
       <h>99</h>
     </coordinates>
@@ -471,7 +471,7 @@ ITextUserInterfaceExtended
     <id>UMLClass</id>
     <coordinates>
       <x>351</x>
-      <y>0</y>
+      <y>54</y>
       <w>117</w>
       <h>81</h>
     </coordinates>
@@ -486,7 +486,7 @@ IExitable
     <id>Relation</id>
     <coordinates>
       <x>387</x>
-      <y>72</y>
+      <y>126</y>
       <w>81</w>
       <h>117</h>
     </coordinates>
