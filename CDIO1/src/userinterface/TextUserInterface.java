@@ -37,20 +37,19 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	}
 	
 	
-	private StringBuilder sb = new StringBuilder(140)
+	private final StringBuilder sb = new StringBuilder(200)
 			.append("Enter 1 to Show all users.\n")
 	        .append("Enter 2 to Create an user.\n")
 	        .append("Enter 3 to Update an user.\n")
 	        .append("Enter 4 to Delete an user.\n")
-	        .append("Enter 0 to Exit.\n");
+	        .append("Enter 0 to Exit.\n");	
+	
 	private int choice = -1;
 	private int id = -1;
 	private boolean exit = false;
 	
-	
-	IUserDAO dataAccess = null;
-	CustomInputStream inputStream = new CustomInputStream(System.in);
-
+	protected IUserDAO dataAccess = null;
+	protected CustomInputStream inputStream = new CustomInputStream(System.in);
 	
 	public TextUserInterface(UserDAO dataAccess) {
 		this.dataAccess = dataAccess;
@@ -93,19 +92,15 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		return num;
 	}
 
-	//@Override
-	//public boolean ToExit() {		
-	//	return exit;
-	//}
-
 	private List<UserDTO> users = new ArrayList<>();
 	@Override
 	public void ShowUsers() {
 		try {
 			users = dataAccess.getUserList();
-			for(UserDTO u : users) {
-				System.out.printf("%s\n", u);				
-			}
+			users.stream().forEach(u -> System.out.printf("%s\n", u));
+			//for(UserDTO u : users) {
+			//	System.out.printf("%s\n", u);				
+			//}
 		} catch (DALException e) {
 			e.printStackTrace();
 		}

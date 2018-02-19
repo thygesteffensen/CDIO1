@@ -8,8 +8,6 @@ public class MainWeightingSystem {
 	
 	public static void main(String[] args) {
 		UserDAO dataAccess = null;
-		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
-		ExitListener listener = new ExitListener();
 		
 		try {
 			dataAccess = new UserDAO();
@@ -20,12 +18,13 @@ public class MainWeightingSystem {
 			}
 		}		
 		
+		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
+		ExitListener listener = new ExitListener();
+		
 		
 		tui.AttachExitable(listener);
 		
-		//boolean exit = false;
-		
-		while(!listener.ToExit()) {//exit) {
+		while(!listener.ToExit()) {
 			try {
 				tui.ShowMenu();
 			} catch (DALException e) {
@@ -34,7 +33,7 @@ public class MainWeightingSystem {
 					System.out.printf("\nSuppressed:  %s ", t.getMessage());
 				}
 			}finally {
-				//exit = tui.ToExit();				
+
 			}
 		}
 		
