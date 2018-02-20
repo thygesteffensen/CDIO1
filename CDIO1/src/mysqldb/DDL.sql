@@ -12,60 +12,47 @@ create table operatoer
 	 ini varchar(20),
 	 cpr varchar(20),
 	 password varchar(20),
-	 primary key (opr_id)
-	);
---operatoer(opr_id : integer; opr_navn : string; ini : string; cpr : string; password : string)
+	 primary key (opr_id) );
 
 create table raavare
 	(raavare_id int(10),
 	 raavare_navn varchar(20),
 	 leverandoer varchar(20),
-	 primary key (raavare_id)
-	);
---raavare(raavare_id : integer; raavare navn : string; leverandoer : string)
+	 primary key (raavare_id) );
 
 create table raavarebatch
 	(rb_id int(10),
 	 raavare_id int(10),
 	 maengde int(10),
-	 primary key (rb_id)
-	);
---raavarebatch(rb_id : integer; raavare_id : integer; maengde : real)
+	 primary key (rb_id) );
 
 create table recept
 	(recept_id int(10),
 	 recept_navn varchar(20),
-	 primary key (recept_id)
-	);
---recept(recept_id : integer; recept_navn : string)
+	 primary key (recept_id) );
 
 create table receptkomponent
 	(recept_id int(10),
 	 raavare_id int(10),
-	 nom_netto real(),
-	 tolerance real(),
-	 foreign key (recept_id) references recept(recept_id)),
- 	 foreign key (raavare_id) references raavare(raavare_id))
+	 nom_netto real,
+	 tolerance real,
+	 foreign key (recept_id) references recept(recept_id),
+ 	 foreign key (raavare_id) references raavare(raavare_id)
 	);
---receptkomponent(recept_id : integer; raavare_id : integer; nom_netto : real; tolerance : real)
 
 create table produktbatch
 	(pb_id int(10),
 	 recept_id int(10),
 	 status int(10),
 	 primary key (pb_id),
- 	 foreign key (recept_id) references recept(recept_id));
-	);	
---produktbatch(pb_id : integer; recept_id : integer; status : integer)
+ 	 foreign key (recept_id) references recept(recept_id));	
 
 create table produktbatchkomponent
 	(pb_id int(10),
 	 rb_id int(10),
 	 opr_id int(10),
-	 tara real(),
-	 netto real(),
- 	 foreign key (pb_id) references produktbatch(pb_id)),
- 	 foreign key (rb_id) references raavarebatch(rb_id)),
-  	 foreign key (opr_id) references operatoer(opr_id))
-	);	
---produktbatchkomponent(pb_id : integer; rb_id : integer; opr_id : integer; tara : real; netto : real)
+	 tara real,
+	 netto real,
+ 	 foreign key (pb_id) references produktbatch(pb_id),
+ 	 foreign key (rb_id) references raavarebatch(rb_id),
+  	 foreign key (opr_id) references operatoer(opr_id));	
