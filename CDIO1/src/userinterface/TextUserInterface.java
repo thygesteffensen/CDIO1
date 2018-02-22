@@ -19,11 +19,9 @@ import funk.User;
 public class TextUserInterface implements ITextUserInterfaceExtended {
 	private List<IExitable> exitables = new ArrayList<>();
 	private IGenPassword genPassword = new GenPassword();
-	private IUser user;
 	
 	public TextUserInterface(UserDAO dataAccess) {
 		this.dataAccess = dataAccess;
-		user = new User(dataAccess);
 	}
 	
 	public void AttachExitable(IExitable exitable) {
@@ -99,13 +97,12 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	private List<UserDTO> users = new ArrayList<>();
 	@Override
 	public void ShowUsers() {
-//		try {
-//			users = dataAccess.getUserList();
-//			users.stream().forEach(u -> System.out.printf("%s\n", u));			
-//		} catch (DALException e) {
-//			e.printStackTrace();
-//		}
-		System.out.println(user.showUsers());
+		try {
+			users = dataAccess.getUserList();
+			users.stream().forEach(u -> System.out.printf("%s\n", u));			
+		} catch (DALException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
