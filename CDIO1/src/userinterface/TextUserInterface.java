@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import codegen.GenPassword;
+import codegen.IGenPassword;
 import dal.IUserDAO;
 import dal.IUserDAO.DALException;
 import dal.UserDAO;
@@ -14,6 +16,7 @@ import dto.UserDTO;
 
 public class TextUserInterface implements ITextUserInterfaceExtended {
 	private List<IExitable> exitables = new ArrayList<>();
+	private IGenPassword genPassword = new GenPassword();
 	
 	public void AttachExitable(IExitable exitable) {
 		exitables.add(exitable);
@@ -117,8 +120,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		System.out.printf("\n%s","Enther cpr: ");
 		String cpr = getString();
 		
-		System.out.printf("\n%s","Enther password: ");
-		String password = getString();
+		String password = genPassword.genPassword();
 		
 		System.out.printf("\n%s","Enther role: ");
 		String role = getString();		
@@ -126,6 +128,8 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		roles.add(role);
 		
 		UserDTO user = new UserDTO(id, name, initials, cpr, password, roles);
+		
+		System.out.printf("Dette brugerens oplysninger: \n\t%s \n \n", user.toString());
 		
 		this.dataAccess.createUser(user);
 	}
