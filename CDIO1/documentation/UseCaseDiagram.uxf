@@ -2,77 +2,33 @@
 <diagram program="umlet" version="14.2">
   <zoom_level>10</zoom_level>
   <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>440</x>
-      <y>260</y>
-      <w>170</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>230</x>
-      <y>230</y>
-      <w>230</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;210.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>440</x>
-      <y>390</y>
-      <w>160</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>230</x>
-      <y>230</y>
-      <w>230</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;210.0;190.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>180</x>
-      <y>490</y>
-      <w>250</w>
+      <x>590</x>
+      <y>410</y>
+      <w>200</w>
       <h>80</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;230.0;60.0</additional_attributes>
+    <additional_attributes>10.0;60.0;180.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>470</y>
-      <w>240</w>
-      <h>50</h>
+      <x>590</x>
+      <y>340</y>
+      <w>200</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;220.0;12.0</additional_attributes>
+    <additional_attributes>10.0;130.0;180.0;12.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>410</x>
-      <y>520</y>
-      <w>140</w>
+      <x>770</x>
+      <y>390</y>
+      <w>150</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>Show users</panel_attributes>
@@ -81,8 +37,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>460</y>
+      <x>770</x>
+      <y>330</y>
       <w>150</w>
       <h>50</h>
     </coordinates>
@@ -90,34 +46,12 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>150</x>
-      <y>230</y>
-      <w>60</w>
-      <h>260</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;10.0;10.0;240.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>180</x>
-      <y>200</y>
-      <w>70</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>User</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
-      <y>50</y>
-      <w>530</w>
-      <h>790</h>
+      <x>670</x>
+      <y>250</y>
+      <w>360</w>
+      <h>440</h>
     </coordinates>
     <panel_attributes>Weighting system use cases
 --
@@ -127,9 +61,9 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>590</y>
-      <w>160</w>
+      <x>770</x>
+      <y>460</y>
+      <w>150</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>Update user</panel_attributes>
@@ -138,86 +72,20 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>490</y>
-      <w>240</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;220.0;125.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>450</x>
-      <y>100</y>
-      <w>150</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>230</x>
-      <y>130</y>
-      <w>240</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;110.0;220.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>450</x>
-      <y>180</y>
-      <w>150</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>230</x>
-      <y>190</y>
-      <w>250</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;50.0;222.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>440</x>
-      <y>330</y>
-      <w>170</w>
+      <x>590</x>
+      <y>460</y>
+      <w>200</w>
       <h>50</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>230</x>
-      <y>230</y>
-      <w>230</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;210.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;180.0;25.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>400</x>
-      <y>680</y>
-      <w>160</w>
+      <x>770</x>
+      <y>550</y>
+      <w>150</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>Delete user
@@ -227,19 +95,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>490</y>
-      <w>240</w>
-      <h>250</h>
+      <x>590</x>
+      <y>460</y>
+      <w>200</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;220.0;225.0</additional_attributes>
+    <additional_attributes>10.0;10.0;180.0;125.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>110</x>
-      <y>480</y>
+      <x>520</x>
+      <y>450</y>
       <w>110</w>
       <h>110</h>
     </coordinates>
