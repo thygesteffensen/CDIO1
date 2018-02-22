@@ -16,14 +16,10 @@ import dto.UserDTO;
 public class UserDAO implements IUserDAO {
 	private final String FILE_NAME = "data.bin"; 
 	private UserStore store = new UserStore();
-	private List<UserDTO> users  = new ArrayList<>(); // = store.getUsers();
+	private List<UserDTO> users  = new ArrayList<>(); 
 	
 	public UserDAO() throws DALException {
-		//try {
-			reloadStore();
-		//} catch (DALException e) {
-		//	e.printStackTrace();
-		//}
+		reloadStore();
 	}
 	
 	private void reloadStore() throws DALException {
@@ -144,6 +140,4 @@ public class UserDAO implements IUserDAO {
 		reloadStore();
 	}
 	
-
-
 }

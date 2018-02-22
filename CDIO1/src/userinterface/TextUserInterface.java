@@ -94,10 +94,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	public void ShowUsers() {
 		try {
 			users = dataAccess.getUserList();
-			users.stream().forEach(u -> System.out.printf("%s\n", u));
-			//for(UserDTO u : users) {
-			//	System.out.printf("%s\n", u);				
-			//}
+			users.stream().forEach(u -> System.out.printf("%s\n", u));			
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
@@ -183,7 +180,6 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		getUserId();
 
 		dataAccess.deleteUser(id);
-
 	}
 	
 	private void getUserId() {		
