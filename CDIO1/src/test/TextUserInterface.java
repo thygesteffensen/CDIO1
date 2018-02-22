@@ -1,4 +1,4 @@
-package userinterface;
+package test;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
@@ -15,6 +15,8 @@ import dal.UserDAO;
 import dto.UserDTO;
 import funk.IUser;
 import funk.User;
+import userinterface.IExitable;
+import userinterface.ITextUserInterfaceExtended;
 
 public class TextUserInterface implements ITextUserInterfaceExtended {
 	private List<IExitable> exitables = new ArrayList<>();

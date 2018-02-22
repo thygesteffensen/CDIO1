@@ -1,8 +1,8 @@
 import dal.IUserDAO.DALException;
+import test.TextUserInterface;
 import dal.UserDAO;
 import userinterface.IExitable;
 import userinterface.ITextUserInterfaceExtended;
-import userinterface.TextUserInterface;
 
 public class MainWeightingSystem {
 	private static ExitListener listener = new ExitListener();	
