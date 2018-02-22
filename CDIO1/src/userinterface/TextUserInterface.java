@@ -37,7 +37,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	}
 	
 	
-	private final StringBuilder sb = new StringBuilder(200)
+	private StringBuilder menu = new StringBuilder(200)
 			.append("Enter 1 to Show all users.\n")
 	        .append("Enter 2 to Create an user.\n")
 	        .append("Enter 3 to Update an user.\n")
@@ -46,10 +46,8 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	
 	private int choice = -1;
 	private int id = -1;
-	private boolean exit = false;
-	
-	protected IUserDAO dataAccess = null;
-	protected CustomInputStream inputStream = new CustomInputStream(System.in);
+	private IUserDAO dataAccess = null;
+	private CustomInputStream inputStream = new CustomInputStream(System.in);
 	
 	public TextUserInterface(UserDAO dataAccess) {
 		this.dataAccess = dataAccess;
@@ -57,7 +55,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 
 	@Override
 	public void ShowMenu() throws DALException {
-		System.out.printf("%s", sb.toString());		  
+		System.out.printf("%s", menu.toString());		  
 		int choice = getInt();
 		switch(choice) {
 			case 1:
@@ -74,8 +72,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 				break;
 			case 0:
 			default:				
-				NotifyExitableListeners();
-				//exit = true;
+				NotifyExitableListeners();				
 				CloseInputStream();
 				break;
 		}
@@ -165,15 +162,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		dataAccess.updateUser(user);
 	}
 
-	private void getUserId() {		
-		Scanner in = new Scanner(this.inputStream);
-		this.id = in.nextInt();
-		in.close();
-	}
 	
-	private void askForUserId() {
-		System.out.printf("%s","Plase enter user id: ");
-	}
 	
 	private void getChoice() {
 		Scanner in = new Scanner(this.inputStream);
@@ -196,5 +185,14 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		dataAccess.deleteUser(id);
 
 	}
-
+	
+	private void getUserId() {		
+		Scanner in = new Scanner(this.inputStream);
+		this.id = in.nextInt();
+		in.close();
+	}
+	
+	private void askForUserId() {
+		System.out.printf("%s","Plase enter user id: ");
+	}
 }

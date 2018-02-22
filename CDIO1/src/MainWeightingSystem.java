@@ -5,9 +5,11 @@ import userinterface.ITextUserInterfaceExtended;
 import userinterface.TextUserInterface;
 
 public class MainWeightingSystem {
+	private static ExitListener listener = new ExitListener();	
+	private static ITextUserInterfaceExtended textUserInterface = null;
+	private static UserDAO dataAccess = null;
 	
 	public static void main(String[] args) {
-		UserDAO dataAccess = null;
 		
 		try {
 			dataAccess = new UserDAO();
@@ -18,15 +20,13 @@ public class MainWeightingSystem {
 			}
 		}		
 		
-		ITextUserInterfaceExtended tui = new TextUserInterface(dataAccess);
-		ExitListener listener = new ExitListener();
+		textUserInterface = new TextUserInterface(dataAccess);
 		
-		
-		tui.AttachExitable(listener);
+		textUserInterface.AttachExitable(listener);
 		
 		while(!listener.ToExit()) {
 			try {
-				tui.ShowMenu();
+				textUserInterface.ShowMenu();
 			} catch (DALException e) {
 				e.printStackTrace();
 				for(Throwable t : e.getSuppressed()) {

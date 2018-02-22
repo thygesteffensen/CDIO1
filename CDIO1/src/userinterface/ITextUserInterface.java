@@ -4,11 +4,9 @@ import dal.IUserDAO.DALException;
 
 public interface ITextUserInterface {
 
+	void ShowUsers();
+	
 	void ShowMenu() throws DALException;
-
-	//boolean ToExit();
-
-	void ShowUsers() ;
 
 	void CreateUser() throws DALException;
 
