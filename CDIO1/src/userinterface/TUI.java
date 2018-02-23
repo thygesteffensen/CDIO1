@@ -9,6 +9,7 @@ import funk.IUser;
 
 public class TUI implements ITextUserInterfaceExtended {
 	private List<IExitable> exitables = new ArrayList<>();
+	private Scanner scan = new Scanner(System.in);
 	private IUser user;
 	
 	public TUI(IUser user) {
@@ -65,26 +66,37 @@ public class TUI implements ITextUserInterfaceExtended {
 
 	@Override
 	public void CreateUser() throws DALException {
-		// TODO Auto-generated method stub
-
+		System.out.println("Please enter the following:");
+		
+		System.out.print("Name:");
+		String name = scan.next();
+		
+		System.out.print("Social sercurity number:");
+		String cpr = scan.next();
+		
+		System.out.print("Role: ");
+		String role = scan.next();
+		
+		System.out.println("this is the data on the added user:");
+		System.out.println(user.createUser(name, cpr, role));
 	}
 
 	@Override
 	public void UpdateUser() throws DALException {
 		// TODO Auto-generated method stub
-
+		System.out.println("Not yet implemented");
 	}
 
 	@Override
 	public void DeleteUser() throws DALException {
 		// TODO Auto-generated method stub
-
+		System.out.println("Not yet implemented");
 	}
 
 	@Override
 	public void AttachExitable(IExitable exitable) {
 		// TODO Auto-generated method stub
-
+		System.out.println("Not yet implemented");
 	}
 
 }
