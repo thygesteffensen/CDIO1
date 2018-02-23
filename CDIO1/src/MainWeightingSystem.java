@@ -20,7 +20,8 @@ public class MainWeightingSystem {
 			}
 		}		
 		
-		textUserInterface = new TextUserInterface(dataAccess);
+//		textUserInterface = new TextUserInterface(dataAccess);
+		textUserInterface = new TUI();
 		
 		textUserInterface.AttachExitable(listener);
 		
