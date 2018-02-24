@@ -24,7 +24,7 @@ public class User implements IUser {
 		String str = "";
 		try {
 			users = dataAccess.getUserList();
-//			users.stream().forEach(u -> System.out.printf("%s\n", u));	
+			System.out.println(users.size() + "\t" + str);
 			users.stream().forEach(u -> addToString(u.toString(),str));
 		} catch (DALException e) {
 			e.printStackTrace();

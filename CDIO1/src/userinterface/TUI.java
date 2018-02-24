@@ -8,24 +8,28 @@ import dal.IUserDAO;
 import dal.IUserDAO.DALException;
 import dto.UserDTO;
 import funk.IUser;
+import funk.User;
 
 public class TUI implements ITextUserInterface {
 	private List<IExitable> exitables = new ArrayList<>();
 	private Scanner scan = new Scanner(System.in);
 	private UserDTO userDTO;
+	private IUserDAO userDAO;
 	private IUser user;
+	Scanner in = new Scanner(System.in);
 	
-//	public TUI(UserDTO userDTO) {
-//		this.userDTO = userDTO;
-//	}
-	public TUI(IUser user) {
+
+	public TUI(UserDTO userDTO, IUserDAO userDAO, IUser user) {
+		this.userDTO = userDTO;
+		this.userDAO = userDAO;
 		this.user = user;
 	}
 	
 	@Override
 	public void ShowUsers() {
-		System.out.println("Showing users");
-		System.out.println(user.showUsers());
+//		System.out.println(1);
+		String str = user.showUsers();
+		System.out.println(str);
 	}
 
 	@Override
@@ -60,9 +64,7 @@ public class TUI implements ITextUserInterface {
 	        .append("Enter 0 to Exit.\n");	
 	
 	private int getInt() {
-		Scanner in = new Scanner(System.in);
 		int num = in.nextInt();
-		in.close();
 		return num;
 	}
 	
@@ -98,5 +100,9 @@ public class TUI implements ITextUserInterface {
 	public void DeleteUser() throws DALException {
 		// TODO Auto-generated method stub
 		System.out.println("Not yet implemented");
+	}
+	
+	public void Close() {
+		in.close();
 	}
 }
