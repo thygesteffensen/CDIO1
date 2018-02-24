@@ -13,7 +13,10 @@ public class UserDTO implements Serializable, Cloneable, Comparable<UserDTO>{
 	private String password = "";
 	private List<String> roles = new ArrayList<>();
 	
-	public UserDTO() {	}
+	public UserDTO() {	
+		
+	}
+	
 	public UserDTO(int id, String name, 
 				   String initials, String cpr, 
 				   String password, List<String> roles) {
