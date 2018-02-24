@@ -4,14 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import dal.IUserDAO;
 import dal.IUserDAO.DALException;
+import dto.UserDTO;
 import funk.IUser;
 
 public class TUI implements ITextUserInterfaceExtended {
 	private List<IExitable> exitables = new ArrayList<>();
 	private Scanner scan = new Scanner(System.in);
+	private UserDTO userDTO;
 	private IUser user;
 	
+//	public TUI(UserDTO userDTO) {
+//		this.userDTO = userDTO;
+//	}
 	public TUI(IUser user) {
 		this.user = user;
 	}
