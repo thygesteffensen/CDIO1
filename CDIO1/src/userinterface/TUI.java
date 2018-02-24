@@ -9,7 +9,7 @@ import dal.IUserDAO.DALException;
 import dto.UserDTO;
 import funk.IUser;
 
-public class TUI implements ITextUserInterfaceExtended {
+public class TUI implements ITextUserInterface {
 	private List<IExitable> exitables = new ArrayList<>();
 	private Scanner scan = new Scanner(System.in);
 	private UserDTO userDTO;
@@ -99,11 +99,4 @@ public class TUI implements ITextUserInterfaceExtended {
 		// TODO Auto-generated method stub
 		System.out.println("Not yet implemented");
 	}
-
-	@Override
-	public void AttachExitable(IExitable exitable) {
-		// TODO Auto-generated method stub
-		System.out.println("Not yet implemented");
-	}
-
 }
