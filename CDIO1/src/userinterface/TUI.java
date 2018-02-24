@@ -24,6 +24,7 @@ public class TUI implements ITextUserInterfaceExtended {
 	
 	@Override
 	public void ShowUsers() {
+		System.out.println("Showing users");
 		System.out.println(user.showUsers());
 	}
 

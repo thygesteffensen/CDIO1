@@ -14,7 +14,7 @@ public class MainWeightingSystem {
 	ITextUserInterfaceExtended textUserInterface = null;
 	UserDTO dataAccess = null;
 	IUserDAO userDAO;
-	IUser user = new User(userDAO);
+	IUser user;
 	
 	public void run() {
 		
@@ -22,6 +22,7 @@ public class MainWeightingSystem {
 		
 	try {
 		userDAO = new UserDAO();
+		user = new User(userDAO);
 	} catch (Exception e) {
 		System.out.println("Did not load database");
 		System.exit(0);
