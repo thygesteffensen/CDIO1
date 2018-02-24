@@ -1,27 +1,34 @@
+import dal.IUserDAO;
 import dal.IUserDAO.DALException;
 import dal.UserDAO;
+import dto.UserDTO;
+import funk.IUser;
+import funk.User;
 import userinterface.IExitable;
 import userinterface.ITextUserInterfaceExtended;
+import userinterface.TUI;
 import userinterface.TextUserInterface;
 
 public class MainWeightingSystem {
-	private static ExitListener listener = new ExitListener();	
-	private static ITextUserInterfaceExtended textUserInterface = null;
-	private static UserDAO dataAccess = null;
+	ExitListener listener = new ExitListener();	
+	ITextUserInterfaceExtended textUserInterface = null;
+	UserDTO dataAccess = null;
+	IUserDAO userDAO;
+	IUser user = new User(userDAO);
 	
-	public static void main(String[] args) {
+	public void run() {
 		
-		try {
-			dataAccess = new UserDAO();
-		} catch (DALException e) {
-			e.printStackTrace();
-			for(Throwable t : e.getSuppressed()) {
-				System.out.printf("\nSuppressed:  %s ", t.getMessage());
-			}
-		}		
+		dataAccess = new UserDTO();		
+		
+	try {
+		userDAO = new UserDAO();
+	} catch (Exception e) {
+		System.out.println("Did not load database");
+		System.exit(0);
+	}
 		
 //		textUserInterface = new TextUserInterface(dataAccess);
-		textUserInterface = new TUI();
+		textUserInterface = new TUI(user);
 		
 		textUserInterface.AttachExitable(listener);
 		
