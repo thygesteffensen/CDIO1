@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import dal.IUserDAO;
 import dal.IUserDAO.DALException;
+import dal.UserDAO;
 import dto.UserDTO;
 import funk.IUser;
 import funk.User;
@@ -28,7 +29,7 @@ public class TUI implements ITextUserInterface {
 	@Override
 	public void ShowMenu() throws DALException {
 		System.out.printf("%s", menu.toString());		  
-		int choice = getInt();
+		int choice = in.nextInt();
 		switch(choice) {
 		case 1:
 			ShowUsers();
@@ -56,19 +57,18 @@ public class TUI implements ITextUserInterface {
 		System.out.println(user.showUsers());
 	}
 
-
 	@Override
 	public void CreateUser() throws DALException {
 		System.out.println("Please enter the following:");
 		
-		System.out.print("Name:");
-		String name = scan.nextLine();
+		System.out.println("Name:");
+		String name = in.nextLine();
 		
-		System.out.print("Social sercurity number:");
-		String cpr = scan.next();
-		
-		System.out.print("Role: ");
-		String role = scan.next();
+		System.out.println("Social sercurity number:");
+		String cpr = in.nextLine();
+
+		System.out.println("Role: ");
+		String role = in.nextLine();
 		
 		System.out.printf("\n This is the data on the added user: %s \n", 
 				user.createUser(name, cpr, role));
@@ -85,16 +85,15 @@ public class TUI implements ITextUserInterface {
 		int type = getInt();
 		
 		System.out.print("Enter change: ");
-		String change = in.nextLine();
+		String change = getString();
 		
-		System.out.printf("The following user is changed %");
+		System.out.printf("The following user is changed %d. There was a change in %d which were %s", userID, type, change);
 		try {
 			user.updateUser(userID, type, change);
 		} catch (DALException e) {
 			System.err.println("An error happend while updating user. The user have not been updated.");
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
@@ -133,6 +132,11 @@ public class TUI implements ITextUserInterface {
 	private int getInt() {
 		int num = in.nextInt();
 		return num;
+	}
+	
+	private String getString() {
+		String str = in.nextLine();
+		return str;
 	}
 	
 	private void NotifyExitableListeners() {

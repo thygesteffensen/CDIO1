@@ -77,17 +77,21 @@ public class User implements IUser {
 
 	@Override
 	public String updateUser(int userID, int type, String change) throws DALException {
+		UserDTO upUser = dataAccessObject.getUser(userID);
+		
 		if(type == 1) {
-			dataAccessObject.getUser(userID).setName(change);
-			dataAccessObject.getUser(userID).setInitials(generateInitials(change));
+			upUser.setName(change);
+			upUser.setInitials(generateInitials(change));
 		}
 		else if (type == 2) {
 			List<String> roles = new ArrayList<>();
 			roles.add(change);
-			dataAccessObject.getUser(userID).setRoles(roles);
+			upUser.setRoles(roles);
 		}
 		
+		dataAccessObject.updateUser(upUser);
 		return "Change have happend";
+		
 	}
 
 	@Override
