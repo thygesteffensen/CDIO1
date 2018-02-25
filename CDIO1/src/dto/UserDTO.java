@@ -25,6 +25,10 @@ public class UserDTO implements Serializable, Cloneable, Comparable<UserDTO>{
 		setRoles(roles);
 	}
 	
+	public void Print() {
+		System.out.printf("%s\n", this);
+	}
+	
 	private void setPassword(String password) {
 		this.password = password;		
 	}

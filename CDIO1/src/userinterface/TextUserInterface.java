@@ -97,7 +97,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	public void ShowUsers() {
 		try {
 			users = dataAccess.getUserList();
-			users.stream().forEach(u -> System.out.printf("%s\n", u));			
+			users.stream().forEach(UserDTO::Print);
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
