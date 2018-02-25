@@ -16,24 +16,18 @@ import funk.User;
 
 public class TUI implements ITextUserInterface {
 	private List<IExitable> exitables = new ArrayList<>();
-	private Scanner scan = new Scanner(System.in);
-	private UserDTO userDTO;
-	private IUserDAO userDAO;
 	private IUser user;
 	private CustomInputStream inputStream = new CustomInputStream(System.in);
-	private Scanner in = new Scanner(System.in);
 	
 
 	public TUI(UserDTO userDTO, IUserDAO userDAO, IUser user) {
-		this.userDTO = userDTO;
-		this.userDAO = userDAO;
 		this.user = user;
 	}
 	
 	@Override
 	public void ShowMenu() throws DALException {
 		System.out.printf("%s", menu.toString());		  
-		int choice = in.nextInt();
+		int choice = getInt();
 		switch(choice) {
 		case 1:
 			ShowUsers();
@@ -48,7 +42,6 @@ public class TUI implements ITextUserInterface {
 			DeleteUser();
 			break;
 		case 0:
-			Close();
 			System.exit(0);
 		default:				
 			NotifyExitableListeners();
@@ -66,15 +59,12 @@ public class TUI implements ITextUserInterface {
 		System.out.println("Please enter the following:");
 		
 		System.out.print("Name:");
-//		System.out.printf("test \n");
 		String name = getString();
 		
 		System.out.print("Social sercurity number:");
-//		System.out.printf("test \n");
 		String cpr = getString();
 
 		System.out.print("Role: ");
-//		System.out.printf("test \n");
 		String role = getString();
 		
 		System.out.printf("\n This is the data on the added user: %s \n", 
@@ -114,10 +104,6 @@ public class TUI implements ITextUserInterface {
 			System.err.println("the following user could not be deleted");
 			e.printStackTrace();
 		}
-	}
-	
-	public void Close() {
-		in.close();
 	}
 	
 	/* ****************************************************************
@@ -170,4 +156,5 @@ public class TUI implements ITextUserInterface {
 				//System.in won't be closed 
 			}
 		}
+
 }
