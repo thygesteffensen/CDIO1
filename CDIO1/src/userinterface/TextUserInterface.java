@@ -87,6 +87,10 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 
 	private int getInt() {
 		Scanner in = new Scanner(this.inputStream);
+		while(!in.hasNextInt()) {
+			System.out.printf("\n%s\n", "Not a number, try again!");
+			in.next();
+		}
 		int num = in.nextInt();
 		in.close();
 		return num;
@@ -166,9 +170,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	
 	
 	private void getChoice() {
-		Scanner in = new Scanner(this.inputStream);
-		choice = in.nextInt();				
-		in.close();
+		choice = getInt();		 
 	}
 	
 	private void askForChoice() {
@@ -187,9 +189,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	}
 	
 	private void getUserId() {		
-		Scanner in = new Scanner(this.inputStream);
-		this.id = in.nextInt();
-		in.close();
+		id = getInt();
 	}
 	
 	private void askForUserId() {
