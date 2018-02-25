@@ -20,7 +20,7 @@ public class TUI implements ITextUserInterface {
 	private CustomInputStream inputStream = new CustomInputStream(System.in);
 	
 
-	public TUI(UserDTO userDTO, IUserDAO userDAO, IUser user) {
+	public TUI(IUser user) {
 		this.user = user;
 	}
 	

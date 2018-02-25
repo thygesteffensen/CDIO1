@@ -8,16 +8,14 @@ import userinterface.ITextUserInterface;
 import userinterface.TUI;
 
 public class WeightingSystem {
-	UserDTO userDTO;
 	IUserDAO userDAO;
 	IUser user;
 	ITextUserInterface tui;
 	
 	public void Run() throws DALException {
-		userDTO = new UserDTO();
 		userDAO = new UserDAO();
 		user = new User(userDAO);
-		tui = new TUI(userDTO, userDAO, user);
+		tui = new TUI(user);
 		
 		System.out.println("Welcome... \n");
 		
@@ -29,10 +27,5 @@ public class WeightingSystem {
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	public void Close() {
-		tui.Close();
-	}
-	
+	}	
 }
