@@ -1,5 +1,8 @@
 package userinterface;
 
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +20,8 @@ public class TUI implements ITextUserInterface {
 	private UserDTO userDTO;
 	private IUserDAO userDAO;
 	private IUser user;
-	Scanner in = new Scanner(System.in);
+	private CustomInputStream inputStream = new CustomInputStream(System.in);
+	private Scanner in = new Scanner(System.in);
 	
 
 	public TUI(UserDTO userDTO, IUserDAO userDAO, IUser user) {
@@ -47,7 +51,7 @@ public class TUI implements ITextUserInterface {
 			Close();
 			System.exit(0);
 		default:				
-			NotifyExitableListeners();				
+			NotifyExitableListeners();
 			break;
 		}
 	}
@@ -61,14 +65,17 @@ public class TUI implements ITextUserInterface {
 	public void CreateUser() throws DALException {
 		System.out.println("Please enter the following:");
 		
-		System.out.println("Name:");
-		String name = in.nextLine();
+		System.out.print("Name:");
+//		System.out.printf("test \n");
+		String name = getString();
 		
-		System.out.println("Social sercurity number:");
-		String cpr = in.nextLine();
+		System.out.print("Social sercurity number:");
+//		System.out.printf("test \n");
+		String cpr = getString();
 
-		System.out.println("Role: ");
-		String role = in.nextLine();
+		System.out.print("Role: ");
+//		System.out.printf("test \n");
+		String role = getString();
 		
 		System.out.printf("\n This is the data on the added user: %s \n", 
 				user.createUser(name, cpr, role));
@@ -87,7 +94,7 @@ public class TUI implements ITextUserInterface {
 		System.out.print("Enter change: ");
 		String change = getString();
 		
-		System.out.printf("The following user is changed %d. There was a change in %d which were %s", userID, type, change);
+		System.out.printf("The following user is changed %d. There was a change in %d which were %s \n", userID, type, change);
 		try {
 			user.updateUser(userID, type, change);
 		} catch (DALException e) {
@@ -130,12 +137,16 @@ public class TUI implements ITextUserInterface {
 			.append("Enter 2 to update roles.\n");
 	
 	private int getInt() {
+		Scanner in = new Scanner(this.inputStream);
 		int num = in.nextInt();
+		in.close();
 		return num;
 	}
 	
 	private String getString() {
-		String str = in.nextLine();
+		Scanner in = new Scanner(this.inputStream);
+		String str = in.nextLine().trim();
+		in.close();
 		return str;
 	}
 	
@@ -143,4 +154,20 @@ public class TUI implements ITextUserInterface {
 		for(IExitable ex : exitables) 
 			ex.Exit();
 	}
+	
+	/* ****************************************************************
+	 *                        READING INPUT
+	 * ****************************************************************
+	 */
+	
+		//work around to keep System.in open
+		public class CustomInputStream extends FilterInputStream{
+			public CustomInputStream(InputStream inputStream) {
+				super(inputStream);
+			}		
+			@Override 
+			public void close() throws IOException{
+				//System.in won't be closed 
+			}
+		}
 }
