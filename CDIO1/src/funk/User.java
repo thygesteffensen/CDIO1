@@ -13,23 +13,23 @@ import dto.UserDTO;
 public class User implements IUser {
 	private List<UserDTO> users = new ArrayList<>();
 	private IGenPassword genPassword = new GenPassword();
-	private IUserDAO dataAccess;
+	private IUserDAO dataAccessObject;
 	
 	public User(IUserDAO dataAccess) {
-		this.dataAccess = dataAccess;
+		this.dataAccessObject = dataAccess;
 	}
 	
 	@Override
 	public String showUsers() {
 		String str = "";
 		try {
-			users = dataAccess.getUserList();
-			System.out.println(users.size() + "\t" + str);
-			users.stream().forEach(u -> addToString(u.toString(),str));
+			users = dataAccessObject.getUserList();
+			// Could be rewritten into an for each loop
+			for (int i = 0; i < users.size(); i++)
+				str += users.get(i).toString() + "\n";
 		} catch (DALException e) {
 			e.printStackTrace();
 		}	
-		System.out.println(str);
 		return str;
 	}
 
@@ -42,13 +42,20 @@ public class User implements IUser {
 		roles.add(role);
 		// Initials gets generated from the given name
 		String initials = generateInitials(name);
-		int id = 1; // Will be auto generated later
+		// gets all users and the I have the right size.
+		// this method is slow and should be improved.
+		try {
+			users = dataAccessObject.getUserList();			
+		} catch (DALException e) {
+			System.out.println("Error in user.");
+		}
+		int id = users.size();
 		
 		// Creates user
 		UserDTO user = new UserDTO(id, name, initials, cpr, password, roles);
 		// "puts" user in database...
 		try {
-			this.dataAccess.createUser(user);
+			this.dataAccessObject.createUser(user);
 		}
 		catch (DALException e) {
 			return "Failure";
@@ -63,14 +70,23 @@ public class User implements IUser {
 	}
 
 	@Override
-	public String updateUser(String type, String change) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateUser(int userID, int type, String change) throws DALException {
+		if(type == 1) {
+			dataAccessObject.getUser(userID).setName(change);
+			dataAccessObject.getUser(userID).setInitials(generateInitials(change));
+		}
+		else if (type == 2) {
+			List<String> roles = new ArrayList<>();
+			roles.add(change);
+			dataAccessObject.getUser(userID).setRoles(roles);
+		}
+		
+		return "Change have happend";
 	}
 
 	@Override
-	public void deleteUser() {
-		// TODO Auto-generated method stub
+	public void deleteUser(int userID) throws DALException {
+		dataAccessObject.deleteUser(userID);
 
 	}
 	

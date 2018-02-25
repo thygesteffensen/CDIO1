@@ -26,42 +26,103 @@ public class TUI implements ITextUserInterface {
 	}
 	
 	@Override
-	public void ShowUsers() {
-//		System.out.println(1);
-		String str = user.showUsers();
-		System.out.println(str);
-	}
-
-	@Override
 	public void ShowMenu() throws DALException {
 		System.out.printf("%s", menu.toString());		  
 		int choice = getInt();
 		switch(choice) {
-			case 1:
-				ShowUsers();
-				break;
-			case 2:
-				CreateUser();
-				break;
-			case 3:
-				UpdateUser();
-				break;
-			case 4:
-				DeleteUser();
-				break;
-			case 0:
-			default:				
-				NotifyExitableListeners();				
-				break;
+		case 1:
+			ShowUsers();
+			break;
+		case 2:
+			CreateUser();
+			break;
+		case 3:
+			UpdateUser();
+			break;
+		case 4:
+			DeleteUser();
+			break;
+		case 0:
+		default:				
+			NotifyExitableListeners();				
+			break;
 		}
 	}
 	
+	@Override
+	public void ShowUsers() {
+		System.out.println(user.showUsers());
+	}
+
+
+	@Override
+	public void CreateUser() throws DALException {
+		System.out.println("Please enter the following:");
+		
+		System.out.print("Name:");
+		String name = scan.nextLine();
+		
+		System.out.print("Social sercurity number:");
+		String cpr = scan.next();
+		
+		System.out.print("Role: ");
+		String role = scan.next();
+		
+		System.out.printf("\n This is the data on the added user: %s \n", 
+				user.createUser(name, cpr, role));
+		
+	}
+
+	@Override
+	public void UpdateUser() throws DALException {
+		System.out.printf("Which user do you wish to update? ");
+		int userID = getInt();
+		
+		System.out.printf("%s", type.toString());
+		int type = getInt();
+		
+		System.out.print("Enter change: ");
+		String change = in.nextLine();
+		
+		try {
+			user.updateUser(userID, type, change);
+		} catch (Exception e) {
+			System.out.println("oh no");
+		}
+		
+	}
+
+	@Override
+	public void DeleteUser() throws DALException {
+		System.out.print("Enter the user id, on the user you want to delete: ");
+
+		// deleteUser throws DALException
+		try {
+			user.deleteUser(getInt());			
+		} catch (DALException e) {
+			System.out.println(" The following user could not be delted");
+		}
+	}
+	
+	public void Close() {
+		in.close();
+	}
+	
+	/* ****************************************************************
+	 *                        HELPER FUNCTIONS
+	 * ****************************************************************
+	 */
+	
 	private StringBuilder menu = new StringBuilder(200)
 			.append("Enter 1 to Show all users.\n")
-	        .append("Enter 2 to Create an user.\n")
-	        .append("Enter 3 to Update an user.\n")
-	        .append("Enter 4 to Delete an user.\n")
-	        .append("Enter 0 to Exit.\n");	
+			.append("Enter 2 to Create an user.\n")
+			.append("Enter 3 to Update an user.\n")
+			.append("Enter 4 to Delete an user.\n")
+			.append("Enter 0 to Exit.\n");	
+	
+	private StringBuilder type = new StringBuilder(200)
+			.append("Enter 1 to update name.\n")
+			.append("Enter 2 to update roles.\n");
 	
 	private int getInt() {
 		int num = in.nextInt();
@@ -71,38 +132,5 @@ public class TUI implements ITextUserInterface {
 	private void NotifyExitableListeners() {
 		for(IExitable ex : exitables) 
 			ex.Exit();
-	}
-
-	@Override
-	public void CreateUser() throws DALException {
-		System.out.println("Please enter the following:");
-		
-		System.out.print("Name:");
-		String name = scan.next();
-		
-		System.out.print("Social sercurity number:");
-		String cpr = scan.next();
-		
-		System.out.print("Role: ");
-		String role = scan.next();
-		
-		System.out.println("this is the data on the added user:");
-		System.out.println(user.createUser(name, cpr, role));
-	}
-
-	@Override
-	public void UpdateUser() throws DALException {
-		// TODO Auto-generated method stub
-		System.out.println("Not yet implemented");
-	}
-
-	@Override
-	public void DeleteUser() throws DALException {
-		// TODO Auto-generated method stub
-		System.out.println("Not yet implemented");
-	}
-	
-	public void Close() {
-		in.close();
 	}
 }
