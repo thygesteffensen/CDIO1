@@ -25,7 +25,8 @@ public class WeightingSystem {
 			try {
 				tui.ShowMenu();
 			} catch (DALException e) {
-				System.out.println("Something went wrong, trying to run .showMenu()");
+				System.out.println("Something went wrong.");
+				e.printStackTrace();
 			}
 		}
 	}

@@ -6,7 +6,8 @@ public class Run {
 		try {
 			ws.Run();
 		} catch (DALException e) {
-			System.out.println("Åhh naj");
+			System.err.println("Some mistake happend, while trying to run the WeightSystem.\n");
+			e.printStackTrace();
 		} finally {
 			ws.Close();
 		}

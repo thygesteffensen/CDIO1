@@ -43,6 +43,8 @@ public class TUI implements ITextUserInterface {
 			DeleteUser();
 			break;
 		case 0:
+			Close();
+			System.exit(0);
 		default:				
 			NotifyExitableListeners();				
 			break;
@@ -86,8 +88,9 @@ public class TUI implements ITextUserInterface {
 		
 		try {
 			user.updateUser(userID, type, change);
-		} catch (Exception e) {
-			System.out.println("oh no");
+		} catch (DALException e) {
+			System.err.println("An error happend while updating user. The user have not been updated.");
+			e.printStackTrace();
 		}
 		
 	}
@@ -100,7 +103,8 @@ public class TUI implements ITextUserInterface {
 		try {
 			user.deleteUser(getInt());			
 		} catch (DALException e) {
-			System.out.println(" The following user could not be delted");
+			System.err.println("the following user could not be deleted");
+			e.printStackTrace();
 		}
 	}
 	
