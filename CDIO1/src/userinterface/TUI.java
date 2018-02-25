@@ -80,12 +80,14 @@ public class TUI implements ITextUserInterface {
 		System.out.printf("Which user do you wish to update? ");
 		int userID = getInt();
 		
+		// Printing 
 		System.out.printf("%s", type.toString());
 		int type = getInt();
 		
 		System.out.print("Enter change: ");
 		String change = in.nextLine();
 		
+		System.out.printf("The following user is changed %");
 		try {
 			user.updateUser(userID, type, change);
 		} catch (DALException e) {
