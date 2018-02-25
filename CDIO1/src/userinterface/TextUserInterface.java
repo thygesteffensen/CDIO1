@@ -39,14 +39,6 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		}
 	}
 	
-	
-	private StringBuilder menu = new StringBuilder(200)
-			.append("Enter 1 to Show all users.\n")
-	        .append("Enter 2 to Create an user.\n")
-	        .append("Enter 3 to Update an user.\n")
-	        .append("Enter 4 to Delete an user.\n")
-	        .append("Enter 0 to Exit.\n");	
-	
 	private int choice = -1;
 	private int id = -1;
 	private IUserDAO dataAccess = null;
@@ -56,9 +48,19 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 		this.dataAccess = dataAccess;
 	}
 
+	private void printMenu() {
+		System.out.format("%s%n%s%n%s%n%s%n%s%n", 
+				"Enter 1 to Show all users.",
+				"Enter 2 to Create an user.",
+				"Enter 3 to Update an user.",
+				"Enter 4 to Delete an user.",
+				"Enter 0 to Exit."
+				);		
+	}
+	
 	@Override
 	public void ShowMenu() throws DALException {
-		System.out.printf("%s", menu.toString());		  
+		printMenu();		  
 		int choice = getInt();
 		switch(choice) {
 			case 1:
@@ -88,7 +90,7 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	private int getInt() {
 		Scanner in = new Scanner(this.inputStream);
 		while(!in.hasNextInt()) {
-			System.out.printf("\n%s\n", "Not a number, try again!");
+			System.out.printf("%n%s%n", "Not a number, try again!");
 			in.next();
 		}
 		int num = in.nextInt();
@@ -110,30 +112,30 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 
 	@Override
 	public void CreateUser() throws DALException{
-		System.out.printf("\n%s\n","Enther new user");
+		System.out.printf("%n%s%n","Enther new user");
 
-		System.out.printf("\n%s","Enther id: ");
+		System.out.printf("%n%s","Enther id: ");
 		int id = getInt();
 		
-		System.out.printf("\n%s","Enther name: ");
+		System.out.printf("%n%s","Enther name: ");
 		String name = getString();
 		
-		System.out.printf("\n%s","Enther initials: ");
+		System.out.printf("%n%s","Enther initials: ");
 		String initials = getString();
 		
-		System.out.printf("\n%s","Enther cpr: ");
+		System.out.printf("%n%s","Enther cpr: ");
 		String cpr = getString();
 		
 		String password = genPassword.genPassword();
 		
-		System.out.printf("\n%s","Enther role: ");
+		System.out.printf("%n%s","Enther role: ");
 		String role = getString();		
 		List<String> roles = new ArrayList<>();		
 		roles.add(role);
 		
 		UserDTO user = new UserDTO(id, name, initials, cpr, password, roles);
 		
-		System.out.printf("Dette brugerens oplysninger: \n\t%s \n \n", user.toString());
+		System.out.printf("Current user info: %n\t%s %n %n", user.toString());
 		
 		this.dataAccess.createUser(user);
 	}
@@ -174,10 +176,9 @@ public class TextUserInterface implements ITextUserInterfaceExtended {
 	}
 	
 	private void askForChoice() {
-		StringBuilder sb = new StringBuilder(140)
-				.append("Enter 1 to change user name or\n")
-		        .append("enter 2 to add a new role: ");		        
-		System.out.printf("%s", sb.toString());
+		System.out.format("%s%n%s", 
+						   "Enter 1 to change user name or",
+						   "enter 2 to add a new role: ");
 	}
 	
 	@Override

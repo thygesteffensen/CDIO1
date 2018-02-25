@@ -1,6 +1,5 @@
 import dal.IUserDAO.DALException;
 import dal.UserDAO;
-import userinterface.IExitable;
 import userinterface.ITextUserInterfaceExtended;
 import userinterface.TextUserInterface;
 
@@ -16,7 +15,7 @@ public class MainWeightingSystem {
 		} catch (DALException e) {
 			e.printStackTrace();
 			for(Throwable t : e.getSuppressed()) {
-				System.out.printf("\nSuppressed:  %s ", t.getMessage());
+				System.out.printf("%nSuppressed:  %s ", t.getMessage());
 			}
 		}		
 		
@@ -30,14 +29,14 @@ public class MainWeightingSystem {
 			} catch (DALException e) {
 				e.printStackTrace();
 				for(Throwable t : e.getSuppressed()) {
-					System.out.printf("\nSuppressed:  %s ", t.getMessage());
+					System.out.printf("%nSuppressed:  %s ", t.getMessage());
 				}
 			}finally {
 
 			}
 		}
 		
-		System.out.printf("\n%s\n", "Thank you and goodbye.");
+		System.out.printf("%n%s%n", "Thank you and goodbye.");
 		
 	}
 
