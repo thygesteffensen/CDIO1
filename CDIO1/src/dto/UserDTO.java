@@ -65,8 +65,9 @@ public class UserDTO implements Serializable, Cloneable, Comparable<UserDTO>{
 	public void addRole(String role){
 		this.roles.add(role);
 	}
+	
 	/**
-	 * 
+	 * Removes role from the role list
 	 * @param role
 	 * @return true if role existed, false if not
 	 */

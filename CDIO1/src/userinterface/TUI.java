@@ -67,7 +67,7 @@ public class TUI implements ITextUserInterface {
 		System.out.print("Role: ");
 		String role = getString();
 		
-		System.out.printf("\n This is the data on the added user: %s \n", 
+		System.out.printf("\n" + "This is the data on the added user: %s \n\n", 
 				user.createUser(name, cpr, role));
 		
 	}
@@ -85,6 +85,7 @@ public class TUI implements ITextUserInterface {
 		String change = getString();
 		
 		System.out.printf("The following user is changed %d. There was a change in %d which were %s \n", userID, type, change);
+		
 		try {
 			user.updateUser(userID, type, change);
 		} catch (DALException e) {
@@ -97,11 +98,10 @@ public class TUI implements ITextUserInterface {
 	public void DeleteUser() throws DALException {
 		System.out.print("Enter the user id, on the user you want to delete: ");
 
-		// deleteUser throws DALException
 		try {
 			user.deleteUser(getInt());			
 		} catch (DALException e) {
-			System.err.println("the following user could not be deleted");
+			System.err.println("The following user could not be deleted");
 			e.printStackTrace();
 		}
 	}
@@ -156,5 +156,4 @@ public class TUI implements ITextUserInterface {
 				//System.in won't be closed 
 			}
 		}
-
 }

@@ -2,7 +2,6 @@ package funk;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import codegen.GenPassword;
 import codegen.IGenPassword;
@@ -22,6 +21,7 @@ public class User implements IUser {
 	@Override
 	public String showUsers() {
 		String str = "";
+		
 		try {
 			users = dataAccessObject.getUserList();
 			// Could be rewritten into an for each loop
@@ -69,14 +69,9 @@ public class User implements IUser {
 		
 		return user.toString();
 	}
-	
-
-	private String addToString(String input, String str) {
-		return str + input;
-	}
 
 	@Override
-	public String updateUser(int userID, int type, String change) throws DALException {
+	public void updateUser(int userID, int type, String change) throws DALException {
 		UserDTO upUser = dataAccessObject.getUser(userID);
 		
 		if(type == 1) {
@@ -90,8 +85,6 @@ public class User implements IUser {
 		}
 		
 		dataAccessObject.updateUser(upUser);
-		return "Change have happend";
-		
 	}
 
 	@Override
@@ -104,20 +97,6 @@ public class User implements IUser {
 	 * 									HELPER FUNCTIONS
 	 * ***********************************************************************************************
 	 */	
-	private String getString() {
-		Scanner in = new Scanner(System.in);
-		String name = in.nextLine().trim();
-		in.close();
-		return name;
-	}
-	
-	private int getInt() {
-		Scanner in = new Scanner(System.in);
-		int num = in.nextInt();
-		in.close();
-		return num;
-	}
-	
 	private String generateInitials(String name) {
 		String[] nameArr = name.split(" ");
 		String initials = "";

@@ -6,18 +6,6 @@ public class GenPassword implements IGenPassword {
 	private Random ran = new Random();
 	
 	@Override
-	/*
-	 * (non-Javadoc)
-	 * @see codegen.ICodeGen#genCode()
-	 * Rules:
-	 * 1: At least 6 characters
-	 * 1.2: Including at least 3 from the following categories: 
-	 * - small letters (a-z)
-	 * - capital letters (A-Z)
-	 * - numbers (0-9)
-	 * - special characters. 
-	 * 1.2.1: Special characters: {'.', '-', '_', '+', '!', '?', '='}
-	 */
 	public String genPassword() {
 		char[] code = new char[6];
 		code[0] = genSmallLetter();

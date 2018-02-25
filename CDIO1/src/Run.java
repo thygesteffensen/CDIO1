@@ -8,9 +8,6 @@ public class Run {
 		} catch (DALException e) {
 			System.err.println("Some mistake happend, while trying to run the WeightSystem.\n");
 			e.printStackTrace();
-		} finally {
-//			ws.Close();
-		}
-		
+		} 		
 	}
 }
