@@ -76,8 +76,8 @@ public class UserDTO implements Serializable, Cloneable, Comparable<UserDTO>{
 
 	@Override
 	public String toString() {
-		return String.format("UserDTO [id= %d, name= %s, initials= %s, roles= %s]"
-								, id, name, initials, roles);
+		return String.format("UserDTO [id= %d, name= %s, initials= %s, roles= %s, password= %s]"
+								, id, name, initials, roles, password);
 	}
 	
 	@Override
