@@ -1,4 +1,4 @@
-package dal;
+package dataaccess;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,15 +10,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import dal.IUserDAO;
+import dataaccess.UserStore;
+import dataaccess.IUserDAO;
 import dto.UserDTO;
 
 public class UserDAO implements IUserDAO {
-	private final String FILE_NAME = "data.bin"; 
+	private final String FILE_NAME; 
 	private UserStore store = new UserStore();
 	private List<UserDTO> users  = new ArrayList<>(); 
 	
 	public UserDAO() throws DALException {
+		this("data.bin");		
+	}
+	
+	public UserDAO(String FILE_NAME) throws DALException {		
+		this.FILE_NAME = FILE_NAME;
+		
 		reloadStore();
 	}
 	

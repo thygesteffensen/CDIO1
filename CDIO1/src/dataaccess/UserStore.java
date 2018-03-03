@@ -1,4 +1,4 @@
-package dal;
+package dataaccess;
 
 import java.io.Serializable;
 import java.util.ArrayList;

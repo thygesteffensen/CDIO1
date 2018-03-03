@@ -1,6 +1,6 @@
 package userinterface;
 
-import dal.IUserDAO.DALException;
+import dataaccess.IUserDAO.DALException;
 
 public interface ITextUserInterface {
 

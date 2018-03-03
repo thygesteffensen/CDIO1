@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 import codegen.GenPassword;
 import codegen.IGenPassword;
-import dal.IUserDAO;
-import dal.IUserDAO.DALException;
-import dal.UserDAO;
+import dataaccess.IUserDAO;
+import dataaccess.UserDAO;
+import dataaccess.IUserDAO.DALException;
 import dto.UserDTO;
 
 public class TextUserInterface implements ITextUserInterfaceExtended {

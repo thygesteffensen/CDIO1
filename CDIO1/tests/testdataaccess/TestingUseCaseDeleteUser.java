@@ -1,4 +1,4 @@
-package dataaccess;
+package testdataaccess;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -9,9 +9,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import dal.IUserDAO;
-import dal.UserDAO;
-import dal.IUserDAO.DALException;
+import dataaccess.IUserDAO;
+import dataaccess.UserDAO;
+import dataaccess.IUserDAO.DALException;
 import dto.UserDTO;
 
 public class TestingUseCaseDeleteUser {

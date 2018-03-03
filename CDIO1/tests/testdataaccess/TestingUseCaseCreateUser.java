@@ -1,4 +1,4 @@
-package dataaccess;
+package testdataaccess;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import dal.IUserDAO;
-import dal.IUserDAO.DALException;
-import dal.UserDAO;
+import dataaccess.IUserDAO;
+import dataaccess.UserDAO;
+import dataaccess.IUserDAO.DALException;
 import dto.UserDTO;
 
 public class TestingUseCaseCreateUser {

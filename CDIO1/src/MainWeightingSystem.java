@@ -1,7 +1,10 @@
-import dal.IUserDAO.DALException;
-import dal.UserDAO;
+import dataaccess.UserDAO;
+import functionality.FunctionalityImpl;
+import controllers.ControllerImpl;
+import dataaccess.IUserDAO.DALException;
 import userinterface.ITextUserInterfaceExtended;
 import userinterface.TextUserInterface;
+import userinterface.UserInterfaceImpl;
 
 public class MainWeightingSystem {
 	private static ExitListener listener = new ExitListener();	
@@ -25,7 +28,14 @@ public class MainWeightingSystem {
 		
 		while(!listener.ToExit()) {
 			try {
-				textUserInterface.ShowMenu();
+				
+				new ControllerImpl(
+						new UserInterfaceImpl(
+								new FunctionalityImpl(new UserDAO("data.bin")), 
+								listener)
+						).runUI();
+				
+				//textUserInterface.ShowMenu();
 			} catch (DALException e) {
 				e.printStackTrace();
 				for(Throwable t : e.getSuppressed()) {
